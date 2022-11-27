@@ -29,7 +29,6 @@ for key, value in map.items():
     os.chdir(os.path.join(TARGET, value[0], key.replace(".tar.gz", "")))
     os.system("pwd")
     if value[1]:
-        print(value[1])
         os.system(value[1])
         os.system("make")
         os.system("sudo -S make install")
@@ -37,3 +36,9 @@ for key, value in map.items():
         os.system("make")
         if value[2]:
             os.system("make test")
+
+check = ["bin/autoconf", "bin/pkg-config", "bin/openssl", "include/freetype2"]
+for f in check:
+    t = os.path.join("/usr/local", f)
+    if not os.path.exists(t):
+        raise IOError("not find")
