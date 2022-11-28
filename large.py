@@ -16,7 +16,10 @@ map = {
                                      False),
 
     "corretto-11-11.0.17.8.1.tar.gz": (
-        "jdk11", "sh configure --with-boot-jdk=../../amazon-corretto-11.jdk/Contents/Home", False)
+        "jdk11", "sh configure --with-boot-jdk=../../amazon-corretto-11.jdk/Contents/Home", False),
+
+    "corretto-17-17.0.5.8.1.tar.gz": (
+        "jdk17", "sh configure --with-boot-jdk=../../amazon-corretto-17.jdk/Contents/Home", False)
 
 }
 
@@ -36,5 +39,6 @@ for key, value in map.items():
     if value[1]:
         os.system("export PATH=/Applications/CMake.app/Contents/bin:$PATH && " + value[1])
         os.system("make")
+        os.system("make images")
         if value[2]:
             os.system("sudo -S make install")
