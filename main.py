@@ -37,8 +37,4 @@ for key, value in map.items():
         if value[2]:
             os.system("make test")
 
-check = ["bin/autoconf", "bin/pkg-config", "bin/openssl", "include/freetype2"]
-for f in check:
-    t = os.path.join("/usr/local", f)
-    if not os.path.exists(t):
-        raise IOError("not find")
+
