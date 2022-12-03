@@ -1,0 +1,2 @@
+defaults write -g ApplePressAndHoldEnabled -bool false
+ssh-keygen -t rsa -b 2048 -C "vsmysee@gmail.com"
